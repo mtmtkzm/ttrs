@@ -1,0 +1,15 @@
+.ligris-field {
+  // 全体は正方形（高さに合わせる）
+  width: 90vh;
+  height: 90vh;
+  margin: 0 auto;
+  padding: 20px;
+
+  tr {}
+
+  td {
+    border: 1px solid gray;
+  }
+}
+
+
