@@ -1,10 +1,21 @@
 const state = {
   field: [],        // field squares
-                    // 0: ブロックなし, 1: ブロックあり
+                    // 0: ブロックなし, 1: 未確定,  2: 確定
+  blockType: '',
   gameover: false,  // gameover flag
   point: 0,         // 0 points
-  timer: 60000      // 1 min
+  timelimit: 60000      // 1 min
 };
+
+export function setField (i, block) {
+  state.field[i] = block;
+
+  // ここで再描画する
+}
+
+export function setBlockType(type) {
+  state.blockType = type;
+}
 
 export function get (path) {
   // pathがStringだったら配列にする
@@ -20,8 +31,4 @@ export function get (path) {
   }
 
   return object;
-}
-
-export function setField (i, block) {
-  state.field[i] = block;
 }
