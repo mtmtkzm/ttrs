@@ -18,21 +18,26 @@ for (let i = 0; i < N_HORIZONTAL * N_VERTICAL; i++) {
   FIELD_BLOCKS.append(cell);
 }
 
-let b = 0;
-let w = N_HORIZONTAL;
+let n = N_HORIZONTAL;
+let b = -4*n;
 
 let BLOCK_ARRANGEMENT = {
-  L: [b, b+w, b+(2*w), b+(3*w), b+(3*w)+1, b+(3*w)+2],
-  I: [b, b+w, b+(2*w), b+(3*w)],
-  G: [b, b+1, b+2, b+w, b+(2*w), b+(2*w)+2, b+(3*w), b+(3*w)+1, b+(3*w)+2]
+  L: [b, b+n, b+(2*n), b+(3*n), b+(3*n)+1, b+(3*n)+2],
+  I: [b, b+n, b+(2*n), b+(3*n)],
+  G: [b, b+1, b+2, b+n, b+(2*n), b+(2*n)+2, b+(3*n), b+(3*n)+1, b+(3*n)+2]
 };
-
-console.log(BLOCK_ARRANGEMENT);
 
 function createBlock (type) {
   let blockType = BLOCK_ARRANGEMENT[type];
-  for (let i=0; i<BLOCK_ARRANGEMENT.L.length; i++) {
-    cells[blockType[i]].classList.add(type);
+
+  for (let i=0; i<blockType.length; i++) {
+    let n = blockType[i];
+    if (n < 0 || N_HORIZONTAL*N_VERTICAL < n) {
+      // 配列の範囲外の時
+    } else {
+      // 配列の範囲内の時（= 0 ~ cells.length）
+      cells[blockType[i]].classList.add(type);
+    }
   }
 }
 
