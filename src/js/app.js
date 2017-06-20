@@ -16,13 +16,14 @@ for (let i = 0; i < N_HORIZONTAL * N_VERTICAL; i++) {
   FIELD_BLOCKS.append(cell);
 }
 
-let n = N_HORIZONTAL;
-let b = state.b;
+let n = N_HORIZONTAL; 
+let x = state.blockX; // ブロック左上マスの x座標
+let y = state.blockY; // ブロック左上マスの y座標
 
 let BLOCK_ARRANGEMENT = {
-  L: [b, b+n, b+(2*n), b+(3*n), b+(3*n)+1, b+(3*n)+2],
-  I: [b, b+n, b+(2*n), b+(3*n)],
-  G: [b, b+1, b+2, b+n, b+(2*n), b+(2*n)+2, b+(3*n), b+(3*n)+1, b+(3*n)+2]
+  L: [(y+0)*n+x, (y+1)*n+x, (y+2)*n+x, (y+3)*n+x, (y+3)*n+x+1, (y+3)*n+x+2],
+  I: [(y+0)*n+x, (y+1)*n+x, (y+2)*n+x, (y+3)*n+x],
+  G: [(y+0)*n+x, (y+0)*n+x+1, (y+0)*n+x+2, (y+1)*n+x, (y+2)*n+x, (y+2)*n+x+2, (y+3)*n+x, (y+3)*n+x+1, (y+3)*n+x+2]
 };
 
 function createBlock (type) {
