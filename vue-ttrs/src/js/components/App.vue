@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <h1>{{msg}}</h1>
+    <Liglis-Field></Liglis-Field>
   </div>
 </template>
 
 <script>
+  import LiglisField from './Field.vue';
+
   export default {
-    name: 'app',
-    data () {
-      return {
-        msg: 'Welcome to Your Vue.js App'
-      }
+    name: 'App',
+    components: {
+      LiglisField
     }
   }
 </script>
